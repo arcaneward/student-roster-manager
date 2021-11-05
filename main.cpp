@@ -8,10 +8,10 @@ using namespace std;
 // Requirement F
 
 int main() {
-        cout << "C867 - Scripting and Programming: Applications\t" << endl;
+        cout << "Scripting and Programming: Applications\t" << endl;
         cout << "Language: C++\t" << endl;
-        cout << "Student ID: #007157921\t" << endl;
-        cout << "Name: Lindsey Thornton" << endl;
+        cout << "Student ID: [redacted]\t" << endl;
+        cout << "Name: [redacted]" << endl;
     
     Roster classRoster;
     classRoster.parseAdd();
