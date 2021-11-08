@@ -29,4 +29,5 @@ class Roster {
         void printInvalidEmailAddress() const;
         void printByDegree(DegreeProgram degreeprogram);
         Roster();
-        ~Roster(); };
+        ~Roster(); 
+};
