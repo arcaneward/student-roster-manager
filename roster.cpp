@@ -9,7 +9,7 @@ using namespace std;
         "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
         "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
         "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-        "A5,Redacted,Redacted,redacted@school.edu,35,21,33,49,SOFTWARE" }; 
+        "A5,Redacted,Redacted,redacted@school.edu,35,21,33,49,SOFTWARE"}; 
 
     // Requirement E
     void Roster::parseAdd() {
@@ -39,10 +39,15 @@ using namespace std;
             int daysInCourse3 = stoi(studentData[i].substr(lt, rt - lt));
             lt = rt + 1;
             rt = studentData[i].find_last_of("\0");
-        if (studentData[i].substr(lt, rt - lt) == "SECURITY") { degProgram = DegreeProgram::SECURITY; }
-        else if (studentData[i].substr(lt, rt - lt) == "NETWORK") { degProgram = DegreeProgram::NETWORK; }
-        if (studentData[i].substr(lt, rt - lt) == "SOFTWARE") { degProgram = DegreeProgram::SOFTWARE; }
-            classRosterArray[i] = new Student(studentID, firstName, lastName, email, age, daysInCourse1, daysInCourse2, daysInCourse3, degProgram); }; }
+        if (studentData[i].substr(lt, rt - lt) == "SECURITY") { 
+            degProgram = DegreeProgram::SECURITY; }
+        else if (studentData[i].substr(lt, rt - lt) == "NETWORK") { 
+            degProgram = DegreeProgram::NETWORK; }
+        if (studentData[i].substr(lt, rt - lt) == "SOFTWARE") { 
+            degProgram = DegreeProgram::SOFTWARE; }
+            classRosterArray[i] = new Student(studentID, firstName, lastName, email, age, daysInCourse1, daysInCourse2, daysInCourse3, degProgram); 
+        }; 
+    }
 
     void Roster::remove(string StudID) {
         int found = 0;
@@ -56,13 +61,21 @@ using namespace std;
             classRosterArray[i]->setDaysInCourse(0,0,0);
             classRosterArray[i]->setDegree(DegreeProgram::SOFTWARE);
             found = 1;
-            cout << "Remove Student ID Record: " << StudID << endl; } }
-            if (found == 0) { cout << "Student ID Not Found." << endl; } }
+            cout << "Remove Student ID Record: " << StudID << endl; 
+            } 
+        }
+            if (found == 0) { 
+                cout << "Student ID Not Found." << endl; 
+            } 
+    }
 
 void Roster::PrintRoster() const {
         for (int i = 0; i < 5; i++) { cout << "\t" << endl;
         if (classRosterArray[i]->getID().find(" ") == std::string::npos) {
-            classRosterArray[i]->Print(); } } }
+            classRosterArray[i]->Print(); 
+        } 
+                                    } 
+}
 
     void Roster::printAvgDaysInCourse(string StudID) {
         int found = 0;
@@ -71,21 +84,35 @@ void Roster::PrintRoster() const {
         int total = classRosterArray[i]->getDaysInCourse1() + classRosterArray[i]->getDaysInCourse2() + classRosterArray[i]->getDaysInCourse3();
             cout << "Average Days in Course: ";
             cout << total / 3 << endl;
-            found = 1; } }
+            found = 1; 
+            } 
+        }
             if (found != 1) {
-            cout << "Student ID Record Not Found." << endl; } }
+            cout << "Student ID Record Not Found." << endl; 
+            } 
+    }
 
     void Roster::printInvalidEmailAddress() const {
             cout << "Invalid E-mail Format:" << endl;
         for (int i = 0; i < 5; i++) {
             if (classRosterArray[i]->getEmail().find(' ') != std::string::npos || classRosterArray[i]->getEmail().find('@') == std::string::npos || classRosterArray[i]->getEmail().find('.') == std::string::npos) {
-            cout << classRosterArray[i]->getEmail() << endl; } } }
+            cout << classRosterArray[i]->getEmail() << endl; 
+            } 
+        } 
+    }
 
 void Roster::printByDegree(DegreeProgram degreeprogram) { cout << "Students in Software Development: " << endl;
         for (int i = 0; i < 5; i++) {
             if (classRosterArray[i]->getDegree() == degreeprogram) {
-                classRosterArray[i]->Print(); } } }
+                classRosterArray[i]->Print(); 
+            } 
+        } 
+                                                        }
 
 // Requirement F
-Roster::Roster() { return; }
-Roster::~Roster() { return; }
+Roster::Roster() { 
+    return; 
+}
+Roster::~Roster() { 
+    return; 
+}
