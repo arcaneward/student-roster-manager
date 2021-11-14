@@ -31,4 +31,5 @@ int main() {
         cout << endl;
         classRoster.remove("A3");
         cout << endl;
-    return 0; }
+    return 0; 
+}
